@@ -1,13 +1,16 @@
 import random
+
+import Const as C
+import Dice
 from Player import Player
 from BoardSquares import board_squares
 
 
 class GameBox:
-    turn: int = 0
-    clients_remaining = 100
-    resources_remaining = 20
-    number_of_players = 2
+    turn: int = C.TURN
+    clients_remaining = C.TOTAL_CLIENTS
+    resources_remaining = C.TOTAL_RESOURCES
+    number_of_players = C.NUMBER_OF_PLAYERS
     dice_score = 0
 
     chances_cards = [{
@@ -22,7 +25,7 @@ class GameBox:
     def __init__(self):
         self.squares = self.create_board()
 
-    def create_board(self, number_of_squares: int = 39) -> []:
+    def create_board(self, number_of_squares: int = C.NUMBER_OF_SQUARES) -> []:
         board = []
         for i in range(0, number_of_squares):
             board.append(random.choice(board_squares))
@@ -30,6 +33,8 @@ class GameBox:
 
     def roll_dices(self):
         self.dice_score = random.randint(1, 6)
+        visual_dice = Dice.dice[self.dice_score]
+        print(f"Dice roll: {visual_dice}")
 
     def initial_set_up(self, player: Player):
         clients_to_distribute = self.clients_remaining / self.number_of_players
@@ -42,12 +47,9 @@ class GameBox:
         dices_score = 0
 
         # Roll the dices
-        self.roll_dices()
-        print(f"Dice roll: {self.dice_score}")
-        dices_score += self.dice_score
-        self.roll_dices()
-        dices_score += self.dice_score
-        print(f"Dice roll: {self.dice_score}")
+        for i in range(0,1):
+            self.roll_dices()
+            dices_score += self.dice_score
         print(f"Total dice score: {dices_score}")
 
         # Move to a square

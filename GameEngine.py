@@ -2,7 +2,6 @@ from GameBox import GameBox
 from Player import Player
 import Visualization as v
 
-
 gameBox = GameBox()
 player_one = Player()
 gameBox.initial_set_up(player_one)

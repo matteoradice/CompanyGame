@@ -1,10 +1,10 @@
+import Const as C
 from Company import Company
 
 
 class Player:
-
-    player_profit: int = 0
-    player_resources: int = 0
+    player_profit: int = C.PROFIT
+    player_resources: int = C.TOTAL_RESOURCES
     position_on_the_board: int = 0
 
     def __init__(self):
@@ -27,7 +27,7 @@ class Player:
     def update_profit(self, profit: int):
         self.player_resources += profit
 
-    def _check_consistency(self,intrinsic:str, marketing, efficiency, innovation) -> int:
+    def _check_consistency(self, intrinsic: str, marketing, efficiency, innovation) -> int:
 
         class FinishedResourcesError(Exception):
             def __init__(self):

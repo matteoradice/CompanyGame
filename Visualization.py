@@ -1,10 +1,10 @@
 import Player
 from prettytable import PrettyTable
 
-
 visualizer = PrettyTable()
 
-def visualize(player:Player):
+
+def visualize(player: Player):
     print("********************************************")
     print(player.player_name)
     print(player.owned_company_name)

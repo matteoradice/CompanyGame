@@ -2,6 +2,7 @@ class NoResourcesError(Exception):
     def __init__(self):
         print("MINORE DI 0")
 
+
 class MyCode:
     while True:
         try:
@@ -16,5 +17,6 @@ class MyCode:
             print("A buon fine")
             break
     print("CICLO TERMINATO")
+
 
 myCode = MyCode()

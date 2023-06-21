@@ -1,18 +1,21 @@
+import Const as C
+
+
 class Company:
 
     def __init__(self):
-        self.number_of_clients: int = 0
-        self.selling_price: int = 1
+        self.number_of_clients: int = C.NUMBER_OF_CLIENTS
+        self.selling_price: int = C.SELLING_PRICE
 
         self.profit_and_losses = {
-            "revenue": 0,
-            "costs": 0,
-            "profit": 0
+            "revenue": C.REVENUE,
+            "costs": C.COSTS,
+            "profit": C.PROFIT
         }
         self.intrinsics = {
-            "marketing": 0,
-            "efficiency": 0,
-            "innovation": 0
+            "marketing": C.MARKETING,
+            "efficiency": C.EFFICIENCY,
+            "innovation": C.INNOVATION
         }
 
     def update_number_of_clients(self, player_to_compare):
@@ -40,4 +43,3 @@ class Company:
         self.intrinsics["marketing"] += marketing
         self.intrinsics["efficiency"] += efficiency
         self.intrinsics["innovation"] += innovation
-
